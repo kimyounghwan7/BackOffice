@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./backend
+    image: bo_backend_im
+    container_name: bo_backend_ct
+    ports:
+      - 8099:8000
+    volumes:
+      - ./backend:/usr/src/app
+    restart: always
+    ipc: host
+    # env_file:
+    #   - ./backend/.env_local
+    environment:
+      - TZ=Asia/Seoul
+    command: tail -F /dev/null

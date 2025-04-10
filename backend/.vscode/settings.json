@@ -1,0 +1,12 @@
+{
+	"python.analysis.typeCheckingMode": "basic",                    // mypy 유사한 타입 체크
+	"python.linting.enabled": true,
+	"python.linting.ruffEnabled": true,
+	"python.formatting.provider": "black",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	"ruff.format.enable": true,
+	"ruff.lint.select": ["E", "F", "I", "B", "UP"],                 // 기본 룰셋
+}
