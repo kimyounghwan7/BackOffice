@@ -10,11 +10,12 @@ code 작성 시 에러를 줄이고 일관성 유지를 위해 업계 표준으�
 ```
 * ## python
 	```
-	1. pip install black isort ruff mypy pre-commit
+	1. pip install black isort ruff mypy
 	2. vscode 사용 시 ruff, black formatter 설치
 	3. 하단 json file 생성.
 	```
 	```
+	./vscode/settings.json
 	{
 		"python.formatting.provider": "black",
 		"python.formatting.blackArgs": ["--line-length", "88"],
@@ -32,26 +33,35 @@ code 작성 시 에러를 줄이고 일관성 유지를 위해 업계 표준으�
 	```
 
 ## Backend
-```
-Django
-Django Rest
-```
+* ## Django, Django Rest
+	```
+	1.backend web project init
+	docker-compose -f .\docker-compose-dev.yml run bo_backend django-admin startproject config .
 
-## frontend
-```
-nextjs
-typescript
-```
+	2.django build
+	docker-compose -f .\docker-compose-dev.yml run bo_backend python manage.py collectstatic --noinput
+
+	3.배포시 command 변경
+	gunicorn config.asgi:application --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+
+	4.apps에 app 추가시
+	docker-compose -f .\docker-compose-dev.yml run bo_backend python manage.py startapp users apps/users
+	```
+
+## Frontend
+* ## Nextjs + Typescript
+	```
+	
+	```
 
 ## Ai engine
-```
-Fast-api
-Clip-model
-weaviate (Vector-DB)
-```
+* ## Fast-api + M-Clip-model + weaviate (Vector-DB)
+	```
+
+	```
 
 ## DB + No-sql DB
-```
-PostgresDB (subabase)
-Redis
-```
+* ## PostgresDB (subabase), Redis
+	```
+
+	```

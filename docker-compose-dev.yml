@@ -1,16 +1,18 @@
 services:
-  backend:
+  bo_backend:
     build: ./backend
     image: bo_backend_im
-    container_name: bo_backend_ct
+    container_name: bo_backend
     ports:
       - 8099:8000
     volumes:
       - ./backend:/usr/src/app
     restart: always
     ipc: host
-    # env_file:
-    #   - ./backend/.env_local
+    env_file:
+      - ./backend/.env
     environment:
       - TZ=Asia/Seoul
+    # command: tail -F /dev/null
     command: tail -F /dev/null
+    # command: gunicorn config.asgi:application --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
