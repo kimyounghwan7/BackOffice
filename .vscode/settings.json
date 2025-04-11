@@ -1,0 +1,25 @@
+{
+	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	"files.trimTrailingWhitespace": false,
+	"files.eol": "\n",
+	"files.exclude": {
+	  "**/__pycache__": true,
+	  "**/.next": true,
+	  "**/node_modules": true,
+	  "**/.venv": true,
+	  "**/migrations": true
+	},
+	"search.exclude": {
+	  "**/__pycache__": true,
+	  "**/.next": true,
+	  "**/node_modules": true,
+	  "**/.venv": true,
+	  "**/migrations": true
+	}
+  }
+  

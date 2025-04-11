@@ -1,7 +1,80 @@
 {
-	"extends": ["next/core-web-vitals", "prettier"],
-	"plugins": ["@typescript-eslint"],
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"project": ["frontend/tsconfig.json"]
+	},
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"plugins": ["@typescript-eslint", "react"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		//   "plugin:prettier/recommended",  // 🔄 이 설정이 prettier/prettier 룰을 자동으로 추가함
+		"next/core-web-vitals"
+	],
 	"rules": {
-		"react/react-in-jsx-scope": "off"
+		"no-console": "off",
+		"no-debugger": "off",
+		"eqeqeq": "error",
+		"no-invalid-this": "error",
+		"no-return-assign": "error",
+		"no-unused-expressions": ["error", { "allowTernary": true }],
+		"no-useless-concat": "error",
+		"no-useless-return": "error",
+		"no-use-before-define": "error",
+		"@typescript-eslint/no-unused-vars": ["warn", { "varsIgnorePattern": "^[A-Z]" }],
+		"array-bracket-newline": ["error", { "multiline": true }],
+		"array-bracket-spacing": "error",
+		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+		"block-spacing": "error",
+		"comma-dangle": "error",
+		"comma-spacing": "warn",
+		"comma-style": "warn",
+		"computed-property-spacing": "error",
+		"func-call-spacing": "error",
+		"implicit-arrow-linebreak": ["error", "beside"],
+		"keyword-spacing": "error",
+		"multiline-ternary": "off",
+		"no-mixed-operators": "error",
+		"no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+		"no-tabs": "off",
+		"no-unneeded-ternary": "error",
+		"no-whitespace-before-property": "error",
+		"nonblock-statement-body-position": "error",
+		"object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
+		"quote-props": ["error", "as-needed"],
+		"semi": ["error", "never"],
+		"semi-spacing": "error",
+		"space-before-blocks": "error",
+		"space-in-parens": "error",
+		"space-infix-ops": "error",
+		"space-unary-ops": "error",
+		"arrow-spacing": "error",
+		"no-confusing-arrow": "error",
+		"no-duplicate-imports": "error",
+		"no-var": "error",
+		"prefer-const": "error",
+		"prefer-template": "error",
+		// "prettier/prettier": ["error"], // plugin:prettier/recommended가 포함함. 중복 제거
+		"react/react-in-jsx-scope": "off",
+		"@typescript-eslint/no-explicit-any": "error",
+		"@typescript-eslint/no-unsafe-assignment": "warn",
+		"@typescript-eslint/no-unsafe-call": "warn",
+		"@typescript-eslint/no-unsafe-member-access": "warn"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 }
