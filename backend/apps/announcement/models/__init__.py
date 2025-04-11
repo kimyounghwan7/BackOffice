@@ -1,3 +1,3 @@
-# from .report import *
+from .announcement import Announcement, AnnouncementAttachments
 
-# __all__ = ["Auth", "User"]
+__all__ = ["Announcement", "AnnouncementAttachments"]
