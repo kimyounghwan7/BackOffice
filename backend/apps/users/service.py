@@ -56,7 +56,7 @@ def modify_user(user_data:dict, user_id:int) -> Optional[bool]:
 	finally:
 		close_old_connections()
 
-def remove_user(user_id:int):
+def remove_user(user_id:int) -> Optional[bool]:
 	try:
 		user_query = get_object_or_404(User, id=user_id)
 		user_query.delete_datetime = datetime.now()

@@ -70,7 +70,7 @@ def user_list(request:Request) -> Response:
 def user_detail(request:Request, id:int) -> Response:
 	if request.method == "GET":
 		try:
-			return Response(get_user(request, id), status=HTTPStatus.OK)
+			return Response(get_user(id), status=HTTPStatus.OK)
 		except Exception as e:
 			logger.error(f"user_detail get] {e}")
 			return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
