@@ -15,6 +15,9 @@ vscode가 아니라 다른 idle에 경우 .vscode 디렉토리를 전부 지우�
 
 - ## python
   ```
+  작업 환경에 설치.
+  docker를 통해 container 내부에서 작업 시 container 내부에 세팅.
+  Host pc에서 작업 시 Local에 세팅.
   1. pip install black isort ruff mypy
   2. vscode 사용 시 ruff, black formatter 설치
   3. 하단 json file 생성.
@@ -39,8 +42,17 @@ vscode가 아니라 다른 idle에 경우 .vscode 디렉토리를 전부 지우�
   3.배포시 command 변경
   gunicorn config.asgi:application --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
 
-  4.apps에 app 추가시
-  docker-compose -f .\docker-compose-dev.yml run bo_backend python manage.py startapp users apps/users
+  4.apps에 app 추가시 backend/apps/{app_name} 디렉토리 생성 후 아래 명령어 실행.
+  docker-compose -f .\docker-compose-dev.yml run bo_backend python manage.py startapp {app_name} apps/{app_name}
+  ```
+
+- ## App List
+  ```
+  core
+  users
+  report
+  announcement
+  archive
   ```
 
 ## Frontend
