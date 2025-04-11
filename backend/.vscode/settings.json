@@ -9,5 +9,5 @@
 	},
 	"ruff.format.enable": true,
 	"ruff.lint.select": ["E", "F", "I", "B", "UP"]
-  }
+}
   
