@@ -44,18 +44,18 @@ def register_announcement(announcement_data:dict) -> Optional[bool]:
 	finally:
 		close_old_connections()
 
-def get_announcemnet(announcement_id:int) -> Optional[dict]:
+def get_announcement(announcement_id:int) -> Optional[dict]:
 	try:
 		announcement_query = get_object_or_404(Announcement, id = announcement_id)
 		# TODO 첨부파일 serializer 연동.
 		return AnnouncementSerializer(announcement_query, many = False).data
 	except Exception as e:
-		logger.error(f"get_announcemnet error] {e}")
+		logger.error(f"get_announcement error] {e}")
 		return None
 	finally:
 		close_old_connections()
 
-def modify_announcemnet(announcement_data:dict, announcement_id:int) -> Optional[bool]:
+def modify_announcement(announcement_data:dict, announcement_id:int) -> Optional[bool]:
 	try:
 		announcement_query = get_object_or_404(Announcement, id = announcement_id)
 		serializer = AnnouncementSerializer(
@@ -68,12 +68,12 @@ def modify_announcemnet(announcement_data:dict, announcement_id:int) -> Optional
 			return True
 		return False
 	except Exception as e:
-		logger.error(f"modify_announcemnet error] {e}")
+		logger.error(f"modify_announcement error] {e}")
 		return False
 	finally:
 		close_old_connections()
 
-def remove_announcemnet(announcement_id:int) -> Optional[bool]:
+def remove_announcement(announcement_id:int) -> Optional[bool]:
 	try:
 		announcement_query = get_object_or_404(Announcement, id = announcement_id)
 		announcement_query.delete_datetime = datetime.now()
@@ -81,7 +81,7 @@ def remove_announcemnet(announcement_id:int) -> Optional[bool]:
 		return True
 		return
 	except Exception as e:
-		logger.error(f"remove_announcemnet error] {e}")
+		logger.error(f"remove_announcement error] {e}")
 		return False
 	finally:
 		close_old_connections()

@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.request import Request
 from django.db import close_old_connections
-from .service import get_announcement_list, register_announcement, get_announcemnet, modify_announcemnet, remove_announcemnet
+from .service import get_announcement_list, register_announcement, get_announcement, modify_announcement, remove_announcement
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ def announcement_list(request:Request) -> Response:
 def announcement_detail(request:Request, id:int) -> Response:
 	if request.method == "GET":
 		try:
-			return Response(get_announcemnet(id), status=HTTPStatus.OK)
+			return Response(get_announcement(id), status=HTTPStatus.OK)
 		except Exception as e:
 			logger.error(f"announcement_detail get error] {e}")
 			return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
@@ -48,7 +48,7 @@ def announcement_detail(request:Request, id:int) -> Response:
 			close_old_connections()
 	elif request.method == "PUT":
 		try:
-			if modify_announcemnet(request.data, id):
+			if modify_announcement(request.data, id):
 				return Response(status=HTTPStatus.OK)
 			return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
 		except Exception as e:
@@ -58,7 +58,7 @@ def announcement_detail(request:Request, id:int) -> Response:
 			close_old_connections()
 	elif request.method == "DELETE":
 		try:
-			if remove_announcemnet(id):
+			if remove_announcement(id):
 				return Response(status=HTTPStatus.OK)
 			return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
 		except Exception as e:
