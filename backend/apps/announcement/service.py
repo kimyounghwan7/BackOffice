@@ -79,7 +79,6 @@ def remove_announcement(announcement_id:int) -> Optional[bool]:
 		announcement_query.delete_datetime = datetime.now()
 		announcement_query.save()
 		return True
-		return
 	except Exception as e:
 		logger.error(f"remove_announcement error] {e}")
 		return False
