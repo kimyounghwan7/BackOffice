@@ -16,7 +16,8 @@ def announcement_list(request:Request) -> Response:
 		try:
 			#TODO auth check
 			current_page = int(request.GET.get("currentPage", 1))
-			result = get_announcement_list(current_page)
+			search_str = request.GET.get("searchValue")
+			result = get_announcement_list(current_page, search_str)
 			return Response(result, status=HTTPStatus.OK)
 		except Exception as e:
 			logger.error(f"announcement_list get error] {e}")
@@ -25,7 +26,7 @@ def announcement_list(request:Request) -> Response:
 			close_old_connections()
 	elif request.method == "POST":
 		try:
-			if register_announcement():
+			if register_announcement(request.data):
 				return Response(status=HTTPStatus.OK)
 			return Response(status=HTTPStatus.BAD_REQUEST)
 		except Exception as e:
