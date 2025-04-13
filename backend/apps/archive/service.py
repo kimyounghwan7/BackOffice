@@ -19,10 +19,10 @@ def get_archive_list(current_page:int, search_str:Optional[str]) -> Optional[dic
 			condition.add(Q(title__icontains = search_str) | Q(content__icontains = search_str), Q.AND)
 		offset = (current_page - 1) * PAGE_SIZE
 		total_count = Archive.objects.filter(condition).count()
-		announcemnets_query = Archive.objects.filter(condition).\
+		archives_query = Archive.objects.filter(condition).\
 			order_by("-id")[offset : offset + PAGE_SIZE]
 		return {
-			"result": ArchiveSerializer(announcemnets_query, many = True).data,
+			"result": ArchiveSerializer(archives_query, many = True).data,
 			"totalCount": total_count / PAGE_SIZE
 		}
 	except Exception as e:
