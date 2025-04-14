@@ -1,7 +1,9 @@
 services:
   bo_backend:
-    build: ./backend
-    image: bo_backend_im
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    image: bo_backend_im:latest
     container_name: bo_backend
     ports:
       - 8099:8000
@@ -17,3 +19,21 @@ services:
     command: tail -F /dev/null
     # command: python manage.py runserver 0.0.0.0:8000
     # command: gunicorn config.asgi:application --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+
+  bo_frontend:
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    image: bo_frontend_im:latest
+    container_name: bo_frontend
+    ports:
+      - 3099:3000
+    volumes:
+      - ./frontend:/usr/src/app
+    restart: always
+    ipc: host
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - TZ=Asia/Seoul
+    # command: tail -F /dev/null
+    command: npm run dev

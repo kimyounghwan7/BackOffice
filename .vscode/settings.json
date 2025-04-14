@@ -8,11 +8,11 @@
 	"files.trimTrailingWhitespace": false,
 	"files.eol": "\n",
 	"files.exclude": {
-	  "**/__pycache__": true,
-	  "**/.next": true,
-	  "**/node_modules": true,
-	  "**/.venv": true,
-	  "**/migrations": true
+	  "**/__pycache__": false,
+	  "**/.next": false,
+	  "**/node_modules": false,
+	  "**/.venv": false,
+	  "**/migrations": false
 	},
 	"search.exclude": {
 	  "**/__pycache__": true,

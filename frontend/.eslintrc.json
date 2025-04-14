@@ -19,7 +19,6 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
-		//   "plugin:prettier/recommended",  // 🔄 이 설정이 prettier/prettier 룰을 자동으로 추가함
 		"next/core-web-vitals"
 	],
 	"rules": {
