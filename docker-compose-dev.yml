@@ -35,5 +35,5 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - TZ=Asia/Seoul
-    # command: tail -F /dev/null
-    command: npm run dev
+    command: tail -F /dev/null
+    # command: npm run dev

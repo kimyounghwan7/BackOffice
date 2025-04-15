@@ -63,10 +63,14 @@ vscode가 아니라 다른 idle에 경우 .vscode 디렉토리를 전부 지우�
   1. node_module install
   docker-compose -f .\docker-compose-dev.yml run bo_frontend npm install --force --legacy-peer-deps
 
-  2. shadcn components init & add
+  2. node_module add
+  docker-compose -f .\docker-compose-dev.yml run bo_frontend npm install {module_name} --force --legacy-peer-deps
+  module_names: @tanstack/react-table
+
+  3. shadcn components init & add
   docker-compose -f .\docker-compose-dev.yml run bo_frontend npx shadcn@latest init
   docker-compose -f .\docker-compose-dev.yml run bo_frontend npx shadcn@latest add {componentName}
-  componentNames: button, form, card, input
+  componentNames: button, form, card, input, sidebar, table
   ```
 
 ## Ai engine
