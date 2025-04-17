@@ -3,31 +3,29 @@ import { Archive, Book, Megaphone, NotebookPen, Search, Settings, UsersRound } f
 import {
 	Sidebar,
 	SidebarContent,
-	SidebarGroup,
-	SidebarGroupContent,
-	SidebarGroupLabel,
 	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem
 } from '@/components/ui/sidebar'
+import { AppSidebarGroup } from './app-sidebar-grop'
 
 // Menu items.
 // TODO 추후에 DB에 menu 관리하게 변경.
 export const menuItems = [
 	{
 		title: 'Search',
-		url: '#',
+		url: '/search',
 		icon: Search
 	},
 	{
 		title: 'Announcement',
-		url: '#',
+		url: '/announcement',
 		icon: Megaphone
 	},
 	{
 		title: 'Archive',
-		url: '#',
+		url: '/archive',
 		icon: Archive
 	},
 	{
@@ -40,12 +38,12 @@ export const menuItems = [
 export const adminMenuItems = [
 	{
 		title: 'Users',
-		url: '#',
+		url: '/users',
 		icon: UsersRound
 	},
 	{
 		title: 'Settings',
-		url: '#',
+		url: '/settings',
 		icon: Settings
 	}
 ]
@@ -69,40 +67,7 @@ export function AppSidebar() {
 				</SidebarMenu>
 			</SidebarHeader>
 			<SidebarContent>
-				<SidebarGroup>
-					<SidebarGroupLabel>Genral</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							{menuItems.map(item => (
-								<SidebarMenuItem key={item.title}>
-									<SidebarMenuButton asChild>
-										<a href={item.url}>
-											<item.icon />
-											<span>{item.title}</span>
-										</a>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-							))}
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
-				<SidebarGroup>
-					<SidebarGroupLabel>Admin</SidebarGroupLabel>
-					<SidebarGroupContent>
-						<SidebarMenu>
-							{adminMenuItems.map(item => (
-								<SidebarMenuItem key={item.title}>
-									<SidebarMenuButton asChild>
-										<a href={item.url}>
-											<item.icon />
-											<span>{item.title}</span>
-										</a>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-							))}
-						</SidebarMenu>
-					</SidebarGroupContent>
-				</SidebarGroup>
+				<AppSidebarGroup />
 			</SidebarContent>
 		</Sidebar>
 	)

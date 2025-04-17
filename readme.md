@@ -70,7 +70,7 @@ vscode가 아니라 다른 idle에 경우 .vscode 디렉토리를 전부 지우�
   3. shadcn components init & add
   docker-compose -f .\docker-compose-dev.yml run bo_frontend npx shadcn@latest init
   docker-compose -f .\docker-compose-dev.yml run bo_frontend npx shadcn@latest add {componentName}
-  componentNames: button, form, card, input, sidebar, table
+  componentNames: button form card input sidebar table tabs select
   ```
 
 ## Ai engine
