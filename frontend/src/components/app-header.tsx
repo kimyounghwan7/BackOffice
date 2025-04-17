@@ -1,14 +1,12 @@
 'use client'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
+import { ROUTER_TITLE } from '@/constants/routers'
 import { usePathname } from 'next/navigation'
 
-interface AppHeaderProps {
-	title: string
-}
-
 export function AppHeader() {
-	const currentPath = usePathname()
+	const pathname = usePathname()
+	const title = ROUTER_TITLE[pathname] ?? '알 수 없는 페이지'
 
 	return (
 		<header className="group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 flex h-12 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear">
@@ -18,10 +16,7 @@ export function AppHeader() {
 					orientation="vertical"
 					className="mx-2 data-[orientation=vertical]:h-4"
 				/>
-				<h1 className="text-base font-medium">
-					url 기반으로 title 가져오게 설정.
-					{currentPath ?? ''}
-				</h1>
+				<h1 className="text-base font-medium">{title}</h1>
 			</div>
 		</header>
 	)
