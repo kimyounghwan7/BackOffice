@@ -10,44 +10,6 @@ import {
 } from '@/components/ui/sidebar'
 import { AppSidebarGroup } from './app-sidebar-grop'
 
-// Menu items.
-// TODO 추후에 DB에 menu 관리하게 변경.
-export const menuItems = [
-	{
-		title: 'Search',
-		url: '/search',
-		icon: Search
-	},
-	{
-		title: 'Announcement',
-		url: '/announcement',
-		icon: Megaphone
-	},
-	{
-		title: 'Archive',
-		url: '/archive',
-		icon: Archive
-	},
-	{
-		title: 'Report',
-		url: '/report',
-		icon: Book
-	}
-]
-
-export const adminMenuItems = [
-	{
-		title: 'Users',
-		url: '/users',
-		icon: UsersRound
-	},
-	{
-		title: 'Settings',
-		url: '/settings',
-		icon: Settings
-	}
-]
-
 export function AppSidebar() {
 	return (
 		<Sidebar variant="inset">

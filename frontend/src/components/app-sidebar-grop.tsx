@@ -8,29 +8,39 @@ import {
 	SidebarMenuItem
 } from '@/components/ui/sidebar'
 import { Archive, Book, Megaphone, Search, Settings, UsersRound } from 'lucide-react'
+import {
+	ROUTER_ANNOUNCEMENT,
+	ROUTER_ARCHIVE,
+	ROUTER_REPORT,
+	ROUTER_SEARCH,
+	ROUTER_SETTINGS,
+	ROUTER_USERS
+} from '@/constants/routers'
 
+// Menu items.
+// TODO 추후에 DB에 menu 관리하게 변경.
 const appMenuItems = [
 	{
 		group: 'General',
 		items: [
 			{
 				title: 'Search',
-				url: '/search',
+				url: ROUTER_SEARCH,
 				icon: Search
 			},
 			{
 				title: 'Announcement',
-				url: '/announcement',
+				url: ROUTER_ANNOUNCEMENT,
 				icon: Megaphone
 			},
 			{
 				title: 'Archive',
-				url: '/archive',
+				url: ROUTER_ARCHIVE,
 				icon: Archive
 			},
 			{
 				title: 'Report',
-				url: '/report',
+				url: ROUTER_REPORT,
 				icon: Book
 			}
 		]
@@ -40,12 +50,12 @@ const appMenuItems = [
 		items: [
 			{
 				title: 'Users',
-				url: '/users',
+				url: ROUTER_USERS,
 				icon: UsersRound
 			},
 			{
 				title: 'Settings',
-				url: '/settings',
+				url: ROUTER_SETTINGS,
 				icon: Settings
 			}
 		]
